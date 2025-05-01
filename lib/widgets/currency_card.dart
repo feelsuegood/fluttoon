@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-// [ ] code challenge: put translate in CurrencyCard
+// [x] code challenge: put translate in CurrencyCard
 class CurrencyCard extends StatelessWidget {
   final String name, code, amount;
   final IconData icon;

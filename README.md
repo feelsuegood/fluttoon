@@ -17,3 +17,20 @@ samples, guidance on mobile development, and a full API reference.
 
 ## Reference
 - https://dribbble.com/shots/19858341-Financial-Mobile-IOS-App 
+
+## Customization
+
+### VS Code Settings
+Add these settings to your `settings.json`:
+```json
+{
+    "editor.codeActionsOnSave": {
+        "source.fixAll": "always"
+    },
+    "dart.previewFlutterUiGuides": true
+}
+```
+
+### Recommended Shortcuts & Extensions
+- **Quick Fix**: `Command + .` (Mac) / `Ctrl + .` (Windows/Linux)
+- **Required Extension**: Error Lens - Better error visualization

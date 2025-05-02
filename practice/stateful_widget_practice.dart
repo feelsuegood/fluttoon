@@ -13,14 +13,14 @@ class App extends StatefulWidget {
 
 // hold a data
 class _AppState extends State<App> {
-  List<int> numbers = [];
+  int counter = 0;
 
   void onClick() {
-    // * if you remove setState, can check data change in console for development
-    // use to mutate data, but Not as frequently used as React
+    // don't forget to add setState, also outside of setState works too
+    // counter = counter + 1;
+    // everytime call setState,build method runs again
     setState(() {
-      numbers.add(numbers.length);
-      // print(numbers);
+      counter = counter + 1;
     });
   }
 
@@ -29,13 +29,14 @@ class _AppState extends State<App> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        // Ahead of Time: set before compiling
         backgroundColor: const Color(0xFFF4EDDB),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text('Click count', style: TextStyle(fontSize: 30)),
-              for (var n in numbers) Text('$n', style: TextStyle(fontSize: 30)),
+              Text('$counter', style: TextStyle(fontSize: 30)),
               IconButton(
                 iconSize: 40,
                 onPressed: onClick,

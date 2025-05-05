@@ -4,6 +4,7 @@ void main() {
   runApp(App());
 }
 
+// * st -> then choose option to create widget
 class App extends StatefulWidget {
   const App({super.key});
 
@@ -13,37 +14,36 @@ class App extends StatefulWidget {
 
 // hold a data
 class _AppState extends State<App> {
-  List<int> numbers = [];
-
-  void onClick() {
-    // * if you remove setState, can check data change in console for development
-    // use to mutate data, but Not as frequently used as React
-    setState(() {
-      numbers.add(numbers.length);
-      // print(numbers);
-    });
-  }
-
   // ui part
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        textTheme: TextTheme(titleLarge: TextStyle(color: Colors.red)),
+      ),
       home: Scaffold(
         backgroundColor: const Color(0xFFF4EDDB),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text('Click count', style: TextStyle(fontSize: 30)),
-              for (var n in numbers) Text('$n', style: TextStyle(fontSize: 30)),
-              IconButton(
-                iconSize: 40,
-                onPressed: onClick,
-                icon: Icon(Icons.add_box_rounded),
-              ),
-            ],
+            children: [MyLargeTitle()],
           ),
         ),
+      ),
+    );
+  }
+}
+
+class MyLargeTitle extends StatelessWidget {
+  const MyLargeTitle({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      'My Large Title',
+      style: TextStyle(
+        fontSize: 30,
+        color: Theme.of(context).textTheme.titleLarge!.color,
       ),
     );
   }

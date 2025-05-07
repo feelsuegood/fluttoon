@@ -14,6 +14,14 @@ class App extends StatefulWidget {
 
 // hold a data
 class _AppState extends State<App> {
+  bool showTitle = true;
+
+  void toggleTitle() {
+    setState(() {
+      showTitle = !showTitle;
+    });
+  }
+
   // ui part
   @override
   Widget build(BuildContext context) {
@@ -26,7 +34,13 @@ class _AppState extends State<App> {
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [MyLargeTitle()],
+            children: [
+              showTitle ? MyLargeTitle() : Text('Nothing to see'),
+              IconButton(
+                onPressed: toggleTitle,
+                icon: Icon(Icons.remove_red_eye),
+              ),
+            ],
           ),
         ),
       ),
@@ -34,11 +48,32 @@ class _AppState extends State<App> {
   }
 }
 
-class MyLargeTitle extends StatelessWidget {
+class MyLargeTitle extends StatefulWidget {
   const MyLargeTitle({super.key});
 
   @override
+  State<MyLargeTitle> createState() => _MyLargeTitleState();
+}
+
+class _MyLargeTitleState extends State<MyLargeTitle> {
+  // before build
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    print("initState");
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    print("dispose");
+  }
+
+  @override
   Widget build(BuildContext context) {
+    print("build");
     return Text(
       'My Large Title',
       style: TextStyle(

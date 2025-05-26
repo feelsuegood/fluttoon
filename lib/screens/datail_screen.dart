@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:fluttoon/models/webtoon_detail_model.dart';
+import 'package:fluttoon/models/webtoon_episode_model.dart';
+import 'package:fluttoon/seervices/api_service.dart';
 
-class DetailScreen extends StatelessWidget {
+// change this to stateFulWidget
+class DetailScreen extends StatefulWidget {
   final String title, thumb, id;
 
   const DetailScreen({
@@ -9,6 +13,22 @@ class DetailScreen extends StatelessWidget {
     required this.thumb,
     required this.id,
   });
+
+  @override
+  State<DetailScreen> createState() => _DetailScreenState();
+}
+
+class _DetailScreenState extends State<DetailScreen> {
+  //* constructor
+  late Future<WebtoonDetailModel> webtoon;
+  late Future<List<WebtoonEpisodeModel>> episodes;
+
+  @override
+  void initState() {
+    super.initState();
+    webtoon = ApiServece.getToonById(widget.id);
+    episodes = ApiServece.getLatestEpisodsById(widget.id);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +42,7 @@ class DetailScreen extends StatelessWidget {
         foregroundColor: Color.fromARGB(255, 117, 0, 200),
         surfaceTintColor: Colors.transparent,
         title: Text(
-          title,
+          widget.title,
           style: TextStyle(fontSize: 24, fontWeight: FontWeight.w500),
         ),
       ),
@@ -34,7 +54,7 @@ class DetailScreen extends StatelessWidget {
             children: [
               //* give animation effec to thumb -> Hero
               Hero(
-                tag: id,
+                tag: widget.id,
                 child: Container(
                   width: 250,
                   //* remeber when you try border radious
@@ -52,7 +72,7 @@ class DetailScreen extends StatelessWidget {
                     ],
                   ),
                   child: Image.network(
-                    thumb,
+                    widget.thumb,
                     headers: const {'Referer': 'https://comic.naver.com'},
                     //* doesn't work
                     // headers: {
@@ -63,6 +83,32 @@ class DetailScreen extends StatelessWidget {
                 ),
               ),
             ],
+          ),
+          SizedBox(height: 40),
+          FutureBuilder(
+            future: webtoon,
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                return Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 50),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        snapshot.data!.about,
+                        style: TextStyle(fontSize: 18),
+                      ),
+                      SizedBox(height: 15),
+                      Text(
+                        "${snapshot.data!.genre} / ${snapshot.data!.age}",
+                        style: TextStyle(fontSize: 16),
+                      ),
+                    ],
+                  ),
+                );
+              }
+              return Text("..................................................");
+            },
           ),
         ],
       ),

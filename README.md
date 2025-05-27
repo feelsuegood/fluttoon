@@ -90,6 +90,6 @@ Add these settings to your `settings.json`:
 - [POMO UIKIT](https://www.behance.net/gallery/98918603/POMO-UIKIT)
 - [Creating a webtoon app with Flutter - Nomad Coders](https://nomadcoders.co/flutter-for-beginners)
 
-## 📄 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
+## 🏷️ License
+- CC BY-NC-SA 4.0 (non-commercial research only)
+- This project is for non-commercial research and educational purposes only.

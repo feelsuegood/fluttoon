@@ -154,14 +154,15 @@ class _DetailScreenState extends State<DetailScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
+                          // Change all strings starting with & and ending with ; to spaces
                           snapshot.data!.about.replaceAll(
-                            RegExp(r'&#\d+;'),
+                            RegExp(r'&[^;]+;'),
                             ' ',
                           ),
                           style: GoogleFonts.nanumGothic(
                             fontSize: 18,
                             letterSpacing: -0.7,
-                            height: 1.4,
+                            height: 1.5,
                           ),
                         ),
                         SizedBox(height: 15),

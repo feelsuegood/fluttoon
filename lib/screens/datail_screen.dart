@@ -195,7 +195,10 @@ class _DetailScreenState extends State<DetailScreen> {
                       ],
                     );
                   }
-                  return Container();
+                  return Padding(
+                    padding: const EdgeInsets.all(70),
+                    child: Center(child: CircularProgressIndicator()),
+                  );
                 },
               ),
             ],

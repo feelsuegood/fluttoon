@@ -1,27 +1,74 @@
-# fluttoon
+# 🦸‍♂️ Fluttoon
 
-A new Flutter project.
+A Flutter application for browsing and reading webtoons.
 
-## Getting Started
+## 🚀 Features
 
-This project is a starting point for a Flutter application.
+- Browse webtoons with a modern UI
+- View webtoon details including description, genre, and age rating
+- Like/bookmark favorite webtoons
+- View latest episodes
+- Clean and responsive design
+- Multi-platform support (iOS, Android, Web)
+- Use GoogleFonts for Korean font support
 
-A few resources to get you started if this is your first Flutter project:
+## 🛠 Tech Stack
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- **Framework**: Flutter
+- **Language**: Dart
+- **State Management**: Built-in setState
+- **UI Components**: Material Design
+- **Fonts**: Google Fonts (Nanum Gothic)
+- **Network**: HTTP client for API calls
+- **Storage**: Shared Preferences for local storage
+- **Navigation**: Flutter Navigation 2.0
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 📦 Dependencies
 
-## Reference
-- https://dribbble.com/shots/19858341-Financial-Mobile-IOS-App 
-- https://www.behance.net/gallery/98918603/POMO-UIKIT
+- `google_fonts`: ^6.1.0 - For Korean font support
+- `shared_preferences`: For storing user preferences
+- `url_launcher`: For opening external links
+- `http`: For API calls
 
-## Customization
+## 📂 Project Structure
 
-### VS Code Settings
+```
+lib/
+├── models/          # Data models
+├── screens/         # UI screens
+├── services/        # API services
+└── widgets/         # Reusable widgets
+```
+
+## 📝 Getting Started
+
+### 📋 Prerequisites
+
+- Flutter SDK
+- Dart SDK
+- Android Studio / VS Code
+- iOS Simulator / Android Emulator
+
+### 📦 Installation
+
+1. Clone the repository
+```bash
+git clone https://github.com/feelsuegood/letsue-flutter.git
+```
+
+2. Install dependencies
+```bash
+flutter pub get
+```
+
+3. Run the app
+```bash
+flutter run
+```
+
+## 💻 Development Setup
+
+### 📝 VS Code Settings
 Add these settings to your `settings.json`:
 ```json
 {
@@ -32,6 +79,17 @@ Add these settings to your `settings.json`:
 }
 ```
 
-### Recommended Shortcuts & Extensions
-- **Quick Fix**: `Command + .` (Mac) / `Ctrl + .` (Windows/Linux)
-- **Required Extension**: Error Lens - Better error visualization
+### 📦 Recommended Extensions
+- **Error Lens**: Better error visualization
+- **Flutter**: Official Flutter extension
+- **Dart**: Official Dart extension
+
+## 🎨 Design References
+
+- [Financial Mobile IOS App](https://dribbble.com/shots/19858341-Financial-Mobile-IOS-App)
+- [POMO UIKIT](https://www.behance.net/gallery/98918603/POMO-UIKIT)
+- [Creating a webtoon app with Flutter - Nomad Coders](https://nomadcoders.co/flutter-for-beginners)
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.

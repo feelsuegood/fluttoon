@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttoon/models/webtoon_episode_model.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 class Episode extends StatelessWidget {
@@ -31,7 +32,12 @@ class Episode extends StatelessWidget {
             children: [
               Text(
                 episode.title,
-                style: TextStyle(color: Colors.white, fontSize: 15),
+                style: GoogleFonts.nanumGothic(
+                  color: Colors.white,
+                  fontSize: 15,
+                  fontWeight: FontWeight.w600,
+                  letterSpacing: -1,
+                ),
               ),
               Icon(Icons.chevron_right_rounded, color: Colors.white),
             ],

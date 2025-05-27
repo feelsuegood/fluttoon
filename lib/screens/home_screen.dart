@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttoon/models/webtoon_model.dart';
 import 'package:fluttoon/seervices/api_service.dart';
 import 'package:fluttoon/widgets/webtoon_widget.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
@@ -24,7 +25,11 @@ class HomeScreen extends StatelessWidget {
         surfaceTintColor: Colors.transparent,
         title: Text(
           "Webtoons for Today",
-          style: TextStyle(fontSize: 24, fontWeight: FontWeight.w500),
+          style: GoogleFonts.nanumGothic(
+            fontSize: 24,
+            fontWeight: FontWeight.w600,
+            letterSpacing: -0.7,
+          ),
         ),
       ),
       body: FutureBuilder(
@@ -62,7 +67,7 @@ class HomeScreen extends StatelessWidget {
           id: webtoon.id,
         );
       },
-      separatorBuilder: (context, index) => SizedBox(width: 40),
+      separatorBuilder: (context, index) => SizedBox(width: 80),
     );
     // return ListView.builder(
     //     scrollDirection: Axis.horizontal,

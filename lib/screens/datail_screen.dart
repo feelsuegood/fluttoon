@@ -3,6 +3,7 @@ import 'package:fluttoon/models/webtoon_detail_model.dart';
 import 'package:fluttoon/models/webtoon_episode_model.dart';
 import 'package:fluttoon/seervices/api_service.dart';
 import 'package:fluttoon/widgets/episode_widget.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 // import 'package:url_launcher/url_launcher.dart';
 // import 'package:url_launcher/url_launcher_string.dart';
@@ -97,7 +98,11 @@ class _DetailScreenState extends State<DetailScreen> {
         ],
         title: Text(
           widget.title,
-          style: TextStyle(fontSize: 24, fontWeight: FontWeight.w500),
+          style: GoogleFonts.nanumGothic(
+            fontSize: 24,
+            fontWeight: FontWeight.w600,
+            letterSpacing: -1,
+          ),
         ),
       ),
       body: SingleChildScrollView(
@@ -149,19 +154,30 @@ class _DetailScreenState extends State<DetailScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          snapshot.data!.about,
-                          style: TextStyle(fontSize: 18),
+                          snapshot.data!.about.replaceAll(
+                            RegExp(r'&#\d+;'),
+                            ' ',
+                          ),
+                          style: GoogleFonts.nanumGothic(
+                            fontSize: 18,
+                            letterSpacing: -0.7,
+                            height: 1.4,
+                          ),
                         ),
                         SizedBox(height: 15),
                         Text(
                           "${snapshot.data!.genre} / ${snapshot.data!.age}",
-                          style: TextStyle(fontSize: 16),
+                          style: GoogleFonts.nanumGothic(
+                            fontSize: 16,
+                            letterSpacing: -0.7,
+                          ),
                         ),
                       ],
                     );
                   }
-                  return Text(
-                    "..................................................",
+                  return Padding(
+                    padding: const EdgeInsets.all(70),
+                    child: Center(child: CircularProgressIndicator()),
                   );
                 },
               ),

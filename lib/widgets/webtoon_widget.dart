@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttoon/screens/datail_screen.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Webtoon extends StatelessWidget {
   final String title, thumb, id;
@@ -26,41 +27,56 @@ class Webtoon extends StatelessWidget {
           ),
         );
       },
-      child: Column(
-        children: [
-          //* give animation effec to thumb -> Hero
-          Hero(
-            tag: id,
-            child: Container(
-              width: 250,
-              //* remeber when you try border radious
-              clipBehavior: Clip.hardEdge,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
-                boxShadow: [
-                  BoxShadow(
-                    // how far shadow is
-                    blurRadius: 15,
-                    // choose where is the sun
-                    offset: Offset(10, 15),
-                    color: Colors.black.withOpacity(0.5),
-                  ),
-                ],
-              ),
-              child: Image.network(
-                thumb,
-                headers: const {'Referer': 'https://comic.naver.com'},
-                //* doesn't work
-                // headers: {
-                //   "User-Agent":
-                //       "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36",
-                // },
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 20),
+        child: Column(
+          children: [
+            //* give animation effec to thumb -> Hero
+            Hero(
+              tag: id,
+              child: Container(
+                width: 350,
+                //* remeber when you try border radious
+                clipBehavior: Clip.hardEdge,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  boxShadow: [
+                    BoxShadow(
+                      // how far shadow is
+                      blurRadius: 15,
+                      // choose where is the sun
+                      offset: Offset(10, 15),
+                      color: Colors.black.withOpacity(0.5),
+                    ),
+                  ],
+                ),
+                child: Image.network(
+                  thumb,
+                  headers: const {'Referer': 'https://comic.naver.com'},
+                  //* doesn't work
+                  // headers: {
+                  //   "User-Agent":
+                  //       "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36",
+                  // },
+                ),
               ),
             ),
-          ),
-          SizedBox(height: 10),
-          Text(title, style: TextStyle(fontSize: 22)),
-        ],
+            SizedBox(height: 50),
+            Text(
+              title,
+              style: GoogleFonts.nanumGothic(
+                fontSize: 30,
+                fontWeight: FontWeight.w600,
+                letterSpacing: -1,
+              ),
+              // style: TextStyle(
+              //   fontSize: 30,
+              //   fontWeight: FontWeight.w600,
+              //   letterSpacing: -1,
+              // ),
+            ),
+          ],
+        ),
       ),
     );
   }
